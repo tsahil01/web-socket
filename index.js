@@ -18,7 +18,7 @@ io.on('connection', (socket) => {
     console.log('a user connected with an id: ', socket.id);
     socket.on('chat msg', (msg)=>{ // input box msg
         // console.log(msg);
-        io.emit('msgFromInputBox', msg); // broadcast this msg to everyone
+        io.emit('msgFromInputBox', `${socket.id}: ${msg}`); // broadcast this msg to everyone
     });
     socket.on('disconnect', () => {
         console.log('user disconnented');

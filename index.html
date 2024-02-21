@@ -8,13 +8,14 @@
 <body>
     <h1>Chatting</h1>
     <input type="text" class="textinput" placeholder="Enter text" oninput="sendData()">
+    <button onclick="sendText()">Send</button>
 
     <h2>Messages: </h2>
     <div class="" style="border: 2px solid black;">
         <h3>Message: </h3>
-        <h3 class="text-msg">
+        <div class="text-msg">
             Acutal msg
-        </h3>
+        </div>
     </div>
     <script src="/socket.io/socket.io.js"></script>
 
@@ -26,7 +27,9 @@
             socket.emit('chat msg', msg);
         }
 
-
+        function sendText() {
+            
+        }
         socket.on('msgFromInputBox', (msg)=>{
             // console.log("Message from the input field(send from server): ", msg);
             const textBox = document.querySelector(".text-msg");
